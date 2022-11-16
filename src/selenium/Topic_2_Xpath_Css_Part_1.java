@@ -27,7 +27,7 @@ public class Topic_2_Xpath_Css_Part_1 {
 	public void TC_01_LoginWithEmailAndPasswordEmpty() {
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
 		driver.findElement(By.xpath("//button[@title='Login']")).click();
-		String requiredEntryEmail =	driver.findElement(By.xpath("//div[@id='advice-required-entry-email']")).getText();
+		String requiredEntryEmail = driver.findElement(By.xpath("//div[@id='advice-required-entry-email']")).getText();
 		Assert.assertEquals(requiredEntryEmail, "This is a required field.");
 		String requiredEntryPass = driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText();
 		Assert.assertEquals(requiredEntryPass, "This is a required field.");
@@ -38,7 +38,7 @@ public class Topic_2_Xpath_Css_Part_1 {
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("1234@123.123");
 		driver.findElement(By.xpath("//button[@title='Login']")).click();
-		String validateEmail =	driver.findElement(By.xpath("//div[@id='advice-validate-email-email']")).getText();
+		String validateEmail = driver.findElement(By.xpath("//div[@id='advice-validate-email-email']")).getText();
 		Assert.assertEquals(validateEmail, "Please enter a valid email address. For example johndoe@domain.com.");
 		String requiredEntryPass = driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText();
 		Assert.assertEquals(requiredEntryPass, "This is a required field.");
@@ -53,7 +53,7 @@ public class Topic_2_Xpath_Css_Part_1 {
 		String validatePassword = driver.findElement(By.xpath("//div[@id='advice-validate-password-pass']")).getText();
 		Assert.assertEquals(validatePassword, "Please enter 6 or more characters without leading or trailing spaces.");
 	}
-	
+
 	@Test
 	public void TC_04_LoginWithPasswordIncorrect() {
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();

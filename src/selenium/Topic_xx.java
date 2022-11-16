@@ -14,14 +14,11 @@ import org.testng.annotations.Test;
 public class Topic_xx{
 	WebDriver driver;
 	String geckodriver = "/Users/geotech/Downloads/Setup-Mac/geckodriver";
-	//String chromedriver = "/Users/geotech/Downloads/Setup-Mac/chromedriver";
 	
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", geckodriver );
 		driver = new FirefoxDriver();
-		//System.setProperty("webdriver.chrome.driver", chromedriver);
-		//driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://demo.guru99.com/v4/");
