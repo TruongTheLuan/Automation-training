@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_1{
+public class Topic_xx{
 	WebDriver driver;
 	String geckodriver = "/Users/geotech/Downloads/Setup-Mac/geckodriver";
 	//String chromedriver = "/Users/geotech/Downloads/Setup-Mac/chromedriver";
