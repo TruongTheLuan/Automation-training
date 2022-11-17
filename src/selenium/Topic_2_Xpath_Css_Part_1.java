@@ -63,6 +63,21 @@ public class Topic_2_Xpath_Css_Part_1 {
 		String errorMsg = driver.findElement(By.xpath("//li[@class='error-msg']")).getText();
 		Assert.assertEquals(errorMsg, "Invalid login or password.");
 	}
+	
+	@Test
+	public void TC_05_CreateANewAccount() {
+		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
+		driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("david");
+		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("tran");
+		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys("davidtran@gmail.com");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Gpp3FprM.2dLXr7G");
+		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("Gpp3FprM.2dLXr7G");
+		driver.findElement(By.xpath("//input[@id='is_subscribed']")).click();
+		driver.findElement(By.xpath("//button[@title='Register']")).click();
+		String successMsg = driver.findElement(By.xpath("//li[@class='success-msg']")).getText();
+		Assert.assertEquals(successMsg, "Thank you for registering with Main Website Store.");
+	}
 
 	@AfterClass
 	public void afterClass() {
