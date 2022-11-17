@@ -68,9 +68,9 @@ public class Topic_2_Xpath_Css_Part_1 {
 	public void TC_05_CreateANewAccount() {
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
 		driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
-		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("david");
-		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("tran");
-		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys("davidtran@gmail.com");
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("johny");
+		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("nguyen");
+		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys("johnynguyen@gmail.com");
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Gpp3FprM.2dLXr7G");
 		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("Gpp3FprM.2dLXr7G");
 		driver.findElement(By.xpath("//input[@id='is_subscribed']")).click();
@@ -78,6 +78,19 @@ public class Topic_2_Xpath_Css_Part_1 {
 		String successMsg = driver.findElement(By.xpath("//li[@class='success-msg']")).getText();
 		Assert.assertEquals(successMsg, "Thank you for registering with Main Website Store.");
 	}
+	
+	@Test
+	public void TC_06_LoginWithValidEmailAndPassword() {
+		driver.findElement(By.xpath("//a/span[text()='Account']")).click();
+		driver.findElement(By.xpath("//a[@title='Log Out']")).click();
+		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("johnynguyen@gmail.com");
+		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("Gpp3FprM.2dLXr7G");
+		driver.findElement(By.xpath("//button[@title='Login']")).click();
+		String welcomeMsg = driver.findElement(By.xpath("//p[@class='welcome-msg']")).getText();
+		Assert.assertEquals(welcomeMsg, "WELCOME, JOHNY NGUYEN!");
+	}
+
 
 	@AfterClass
 	public void afterClass() {
