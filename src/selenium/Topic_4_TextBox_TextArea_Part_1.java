@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_4_TextBox_TextArea{
+public class Topic_4_TextBox_TextArea_Part_1{
 	WebDriver driver;
 	String geckodriver = "/Users/geotech/Downloads/Setup-Mac/geckodriver";
 	
