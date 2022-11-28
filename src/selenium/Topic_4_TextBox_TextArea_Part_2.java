@@ -22,9 +22,9 @@ public class Topic_4_TextBox_TextArea_Part_2{
 	String employeeID;
 	String Username = "Admin";
 	String Password = "admin123";
-	String FirstName = "Micheal";
-	String LastName = "Nguyen";
-	String UserNameCreateEmployee = "michealnguyen";
+	String FirstName = "Gracy";
+	String LastName = "Ngo";
+	String UserNameCreateEmployee = "gracyngo";
 	String PasswordCreateEmployee = "Gpp3FprM.2dLXr7G";
 	String ConfirmPasswordCreateEmployee = "Gpp3FprM.2dLXr7G";
 	
@@ -89,31 +89,42 @@ public class Topic_4_TextBox_TextArea_Part_2{
 		Assert.assertTrue(driver.findElement(addEmployeeHeader).isDisplayed());
 		driver.findElement(txtFirstName).sendKeys(FirstName);
 		driver.findElement(txtLastName).sendKeys(LastName);
+		employeeID = driver.findElement(txtEmployeeID).getAttribute("value");
+		System.out.println("employeeID: " + employeeID);
 		Thread.sleep(10000);
+		
 		driver.findElement(checkboxCreateLoginDetails).click();
 		driver.findElement(txtUserNameCreateEmployee).sendKeys(UserNameCreateEmployee);
 		driver.findElement(txtPasswordCreateEmployee).sendKeys(PasswordCreateEmployee);
 		driver.findElement(txtConfirmPasswordCreateEmployee).sendKeys(ConfirmPasswordCreateEmployee);
 		driver.findElement(btnSave).click();
+		Thread.sleep(10000);
 		
 		Assert.assertTrue(driver.findElement(hdPersonalDetails).isDisplayed());
-		Assert.assertEquals(driver.findElement(txtFirstName).getText(), FirstName);
-		Assert.assertEquals(driver.findElement(txtLastName).getText(), LastName);
+		Assert.assertEquals(driver.findElement(txtFirstName).getAttribute("value"), FirstName);
+		Assert.assertEquals(driver.findElement(txtLastName).getAttribute("value"), LastName);
+		Assert.assertEquals(driver.findElement(txtEmployeeID).getAttribute("value"),employeeID);
 		
+		//Logout
 		driver.findElement(By.xpath("//img/following-sibling::p")).click();
 		driver.findElement(btnLogout).click();
+		Thread.sleep(10000);
 		
+		//Login
 		Assert.assertTrue(driver.findElement(hdLogin).isDisplayed());
 		driver.findElement(txtUsername).sendKeys(UserNameCreateEmployee);
 		driver.findElement(txtPassword).sendKeys(PasswordCreateEmployee);
 		driver.findElement(btnLogin).click();
+		Thread.sleep(10000);
 		Assert.assertTrue(driver.findElement(dashboard).isDisplayed());
 		
+		//Verify my info after login successfully
 		driver.findElement(btnMyInfo).click();
+		Thread.sleep(10000);
 		Assert.assertTrue(driver.findElement(hdPersonalDetails).isDisplayed());
-		Assert.assertEquals(driver.findElement(txtFirstName).getText(), FirstName);
-		Assert.assertEquals(driver.findElement(txtLastName).getText(), LastName);
-		
+		Assert.assertEquals(driver.findElement(txtFirstName).getAttribute("value"), FirstName);
+		Assert.assertEquals(driver.findElement(txtLastName).getAttribute("value"), LastName);
+		Assert.assertEquals(driver.findElement(txtEmployeeID).getAttribute("value"),employeeID);
 	}
 	
 	@AfterClass
