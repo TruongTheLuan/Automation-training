@@ -153,7 +153,7 @@ public class Topic_6_Button_Radio_Popup_Alert {
 
 	@Test(enabled = true)
 	public void TC_08_Authenticate_Alert() {
-		String url = "http://admin:admin@the-internet.herokuapp.com/basic_auth";
+		String url = "http://the-internet.herokuapp.com/basic_auth";
 		String UsrName = "admin";
 		String Password = "admin";
 		Handle_Url_Authenticate_Alert(url, UsrName, Password);
